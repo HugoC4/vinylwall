@@ -1,0 +1,108 @@
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+#wall {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
+	background: #e5e5e5; /* Old browsers */
+	background: -moz-linear-gradient(45deg,  #e5e5e5 0%, #ffffff 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(45deg,  #e5e5e5 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg,  #e5e5e5 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	min-height: 100%;
+	min-width: 100%;
+	display: inline-block;
+	padding: 30px 50px;
+    text-align: center;
+}
+
+.shelf {
+	margin-top: 245px;
+    height: 36px;
+    background-image: url('../assets/shelf_back.jpg');
+	box-shadow: black 0px 6px 16px 1px;
+	position: relative;
+	display: inline-block;
+    padding-right: 25px;
+}
+
+.shelf::after {
+	width: 100%;
+    height: 18px;
+    bottom: 0px;
+    background-image: url('../assets/shelf_front.jpg');
+    content: "";
+    position: absolute;
+    display: block;
+}
+
+.shelf .shelfHolder {
+	position: absolute;
+    width: 25px;
+    height: 53px;
+    bottom: -10px;
+    background-repeat: no-repeat;
+    box-shadow: black 0px 6px 16px 1px;
+}
+
+.shelf .shelfHolder:nth-child(2) {
+    left: -25px;
+    background-image: url('../assets/shelf_left.jpg');
+    background-position-x: right;
+}
+
+.shelf .shelfHolder:nth-child(3) {
+    right: -25px;
+    background-image: url('../assets/shelf_right.jpg');
+}
+
+.recordWrapper {
+	white-space: nowrap;
+    text-align: center;
+    position: relative;
+}
+
+.recordWrapper.lp {
+	bottom: 234px;
+}
+
+.recordWrapper.single {
+	bottom: 122px;
+}
+
+.single > .record, .lp > .record {
+	margin-left: 25px;
+    background-size: cover;
+    box-shadow: black 0px 10px 16px 1px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    bottom: 0px;
+}
+
+.record:hover {
+	bottom: 12px;
+	cursor: pointer;
+}
+
+.single > .record {
+	width: 144px;
+	height: 144px;
+	background-image: url(https://upload.wikimedia.org/wikipedia/en/9/91/Dutch_Sanctuary_12%22.jpeg);
+}
+
+.lp > .record {
+	width: 256px;	
+    height: 256px;
+	background-image: url(https://upload.wikimedia.org/wikipedia/en/9/9b/Iron_Maiden_-_Somewhere_in_Time.jpg);
+}
+
+#vinyl {
+    -webkit-animation: rotation 1.1s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotateX(58deg) rotateZ(0deg);}
+    to   {-webkit-transform: rotateX(58deg) rotateZ(359deg);}
+}
