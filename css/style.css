@@ -17,6 +17,11 @@ html,body {
     text-align: center;
 }
 
+#table {
+	background-image: url('../assets/table.png');
+	box-shadow: black 0px 0px 16px 5px;
+}
+
 .shelf {
 	margin-top: 245px;
     height: 36px;
