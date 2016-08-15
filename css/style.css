@@ -3,7 +3,7 @@ html,body {
 	height: 100%;
 }
 
-#wall {
+.wall {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
 	background: #e5e5e5; /* Old browsers */
 	background: -moz-linear-gradient(45deg,  #e5e5e5 0%, #ffffff 100%); /* FF3.6-15 */
@@ -15,11 +15,165 @@ html,body {
 	display: inline-block;
 	padding: 30px 50px;
     text-align: center;
+	position: relative;
 }
 
 #table {
+	margin: auto;
 	background-image: url('../assets/table.png');
-	box-shadow: black 0px 0px 16px 5px;
+    width: 930px;
+    height: 449px;
+    position: relative;
+    background-size: cover;
+    -webkit-filter: drop-shadow(0px 2px 4px rgba(0,0,0,1));
+	top: 0;
+    bottom: 0;
+	left: 0;
+	right: 0;
+    margin: auto;
+    position: absolute;
+}
+
+#table > #sleeve {
+	width: 270px;
+	height: 270px;
+	display: inline-block;
+	position: absolute;
+	left: 42px;
+	bottom: 22px;
+	z-index: 16;
+	transform: rotateZ(-31deg);
+}
+
+#sleeve > #outerSleeve {	
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 0;					
+	box-shadow: black 0px 0px 6px 0px;
+	-webkit-transition: -webkit-filter 0.3s;
+}
+
+#sleeve > #outerSleeve:hover {
+	-webkit-filter: contrast(85%) brightness(130%);
+	cursor: pointer;
+}
+
+#sleeve > #innerSleeve {	
+	height: 98%;
+	width: 98%;
+	background: white;
+	z-index: 0;
+	position: absolute;
+	left: 50%;
+	top: 1%;
+	box-shadow: black 0px 0px 5px 0px;		
+	-webkit-transition: left 0.3s, -webkit-filter 0.3s;
+}
+
+#sleeve > #innerSleeve:hover {	
+	left: 78%;
+	-webkit-filter: contrast(85%) brightness(130%);
+	cursor: pointer;
+}
+
+#table > #turntable {
+	height: 275px;
+    width: 326px;
+    background-size: cover;
+    background-image: url("../assets/turntable_bottom.jpg");
+    position: absolute;
+    right: 64px;
+    top: 25px;
+	box-shadow: black 0px 0px 9px 1px;
+}
+
+#table > #phone {
+	height: 125px;
+    width: 63px;
+    background-size: cover;
+    background-image: url("../assets/phone.png");
+    bottom: 11px;
+    right: 305px;
+    position: absolute;
+    transform: rotateZ(31deg);
+    -webkit-transition: -webkit-filter 0.3s
+}
+
+#table > #phone:hover {
+	cursor: pointer;
+	-webkit-filter: brightness(125%);
+}
+
+#table > #notebook {
+	height: 120px;
+    width: 152px;
+    background-size: cover;
+    background-image: url("../assets/notebook.png");
+    bottom: 28px;
+    right: 37px;
+    position: absolute;
+    transform: rotateZ(-8deg);
+	-webkit-transition: -webkit-filter 0.3s, bottom 0.3s;
+}
+
+#table > #notebook:hover {
+	cursor: pointer;
+	-webkit-filter: contrast(85%) brightness(130%);
+	bottom: 18px;
+}
+
+#turntable #slipmat {
+	width: 249px;
+    height: 249px;
+    left: 9px;
+    top: 16px;
+    position: absolute;
+	background-image: url("../assets/slipmat.png")
+}
+
+#turntable:hover {
+	cursor: pointer;
+}
+
+#slipmat > div {
+	background-size: cover;
+	margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+	-webkit-transition: -webkit-filter 0.3s;
+}
+
+#turntable:hover > #slipmat > div {
+	-webkit-filter: contrast(85%) brightness(130%);
+}
+
+#slipmat > div > img {
+	width: 86px;
+    height: 86px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 100%;
+}
+#slipmat > div.single-black {
+    background-image: url("../assets/vinyl_7_black.png");
+    width: 171px;
+    height: 171px;
+}
+
+#slipmat > div.lp-black {
+	width: 100%;
+	height: 100%;
+	background-image: url('../assets/vinyl_12_black.png')
 }
 
 .shelf {
@@ -84,6 +238,7 @@ html,body {
     vertical-align: top;
     position: relative;
     bottom: 0px;
+	-webkit-transition: bottom 0.25s;
 }
 
 .record:hover {
@@ -94,21 +249,18 @@ html,body {
 .single > .record {
 	width: 144px;
 	height: 144px;
-	background-image: url(https://upload.wikimedia.org/wikipedia/en/9/91/Dutch_Sanctuary_12%22.jpeg);
 }
 
 .lp > .record {
 	width: 256px;	
     height: 256px;
-	background-image: url(https://upload.wikimedia.org/wikipedia/en/9/9b/Iron_Maiden_-_Somewhere_in_Time.jpg);
 }
 
-#vinyl {
-    -webkit-animation: rotation 1.1s infinite linear;
+#slipmat {
+	-webkit-animation: rotation 1.8s infinite linear;
 }
-
-#vinyl.vinylLP {
-	-webkit-animation: rotation2 1.8s infinite linear !important;
+#slipmat.single {
+	-webkit-animation: rotation 1.1s infinite linear !important;
 }
 
 div#turntable::after {
@@ -117,18 +269,13 @@ div#turntable::after {
     width: 100%;
     height: 100%;
     top: 0;
-    background-image: url("file:///C:/Users/hugo/Documents/vinylwall/assets/turntable_top.png");
+    background-image: url("../assets/turntable_top.png");
     position: absolute;
     left: 0;
 	    -webkit-filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.7));
 }
 
 @-webkit-keyframes rotation {
-    from {-webkit-transform: rotateX(58deg) rotateZ(0deg);}
-    to   {-webkit-transform: rotateX(58deg) rotateZ(359deg);}
-}
-
-@-webkit-keyframes rotation2 {
     from {-webkit-transform: rotateZ(0deg);}
     to   {-webkit-transform: rotateZ(359deg);}
 }
